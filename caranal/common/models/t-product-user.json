@@ -39,7 +39,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "TPBelongsToMP": {
+      "type": "belongsTo",
+      "model": "MProduct",
+      "foreignKey": "TPBelongsToMP_ID"
+    },
+    "TPBelongsToMU": {
+      "type": "belongsTo",
+      "model": "MUser",
+      "foreignKey": "TPBelongsToMU_ID"
+    }
+  },
   "acls": [],
-  "methods": []
+  "methods": {}
 }

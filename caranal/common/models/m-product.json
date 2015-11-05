@@ -30,7 +30,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "ProductUserRelation": {
+      "type": "hasMany",
+      "model": "TProductUser",
+      "foreignKey": ""
+    },
+    "RProductUser": {
+      "type": "hasMany",
+      "model": "MUser",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
-  "methods": []
+  "methods": {}
 }
