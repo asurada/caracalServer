@@ -1,0 +1,45 @@
+{
+  "name": "TProductUser",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "ID": {
+      "type": "number",
+      "id": true,
+      "required": true,
+      "index": true
+    },
+    "MUser_ID": {
+      "type": "number",
+      "id": true,
+      "required": true,
+      "index": true
+    },
+    "MProduct_ID": {
+      "type": "number",
+      "id": true,
+      "required": true,
+      "index": true
+    },
+    "REGDT": {
+      "type": "date"
+    },
+    "UPDT": {
+      "type": "date"
+    },
+    "NUM": {
+      "type": "number",
+      "id": true,
+      "required": true,
+      "index": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

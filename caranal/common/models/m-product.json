@@ -1,0 +1,36 @@
+{
+  "name": "MProduct",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "NAME": {
+      "type": "string"
+    },
+    "DETAIL": {
+      "type": "string"
+    },
+    "REGDT": {
+      "type": "date"
+    },
+    "UPDT": {
+      "type": "date"
+    },
+    "ID": {
+      "type": "number",
+      "id": true,
+      "required": true,
+      "index": true
+    },
+    "PRICE": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}
