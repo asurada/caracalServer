@@ -1,20 +1,21 @@
 module.exports = function(MProduct) {
-	MProduct.getName = function(id, cb) {
-		YwUser.findById(id, function (err, instance) {
-        response = "user name is " + instance.name;
-        cb(null, response);
-        console.log(response);
-    	});
+	MProduct.insertProduct = function(name,detail,price,cb) {
+		console.log(name +';'+ detail+';'+price);
+     	MProduct.create({name: name ,detail:detail,price:price ,regdt:Date.now(),updt:Date.now()},cb);
 	};
 
-
-	MProduct.remoteMethod (
-        'getName',
+	MProduct.remoteMethod(
+        'insertProduct',
         {
-          http: {path: '/getname', verb: 'get'},
-          accepts: {arg: 'id', type: 'number', http: { source: 'query' } },
+          http: {path: '/insertProduct', verb: 'post'},
+          accepts: [{arg: 'name', type: 'String', http: { source: 'query' } },
+                    {arg: 'detail', type: 'String', http: { source: 'query' }},
+                    {arg: 'price', type: 'Number', http: { source: 'query' }}],
           returns: {arg: 'answer', type: 'string'}
         }
-  );
+    );
+
+
+
 
 };
