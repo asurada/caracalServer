@@ -55,5 +55,9 @@
     "public": true,
     "$promise": {},
     "$resolved": true
+  },
+  "MImages": {
+    "dataSource": "localMysql",
+    "public": true
   }
 }
