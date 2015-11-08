@@ -28,5 +28,13 @@
     "port": 27017,
     "name": "localMongoDB",
     "connector": "mongodb"
+  },
+  "AWS": {
+    "host": "asuradadb.cf9gvnrq6s3s.us-west-2.rds.amazonaws.com",
+    "port": 3306,
+    "password": "56374874",
+    "name": "AWS",
+    "connector": "mysql",
+    "user": "asurada"
   }
 }
