@@ -1,28 +1,4 @@
 {
-  "db": {
-    "name": "db",
-    "connector": "memory"
-  },
-  "mysqlDs": {
-    "host": "testmysqldb.nhncorp.jp",
-    "port": 5604,
-    "url": "",
-    "database": "casualdb",
-    "username": "casualuser",
-    "password": "dkdl40zowndjf65",
-    "name": "mysqlDs",
-    "connector": "mysql",
-    "user": "root"
-  },
-  "localMysql": {
-    "host": "127.0.0.1",
-    "port": 3306,
-    "database": "SHOP",
-    "password": "56374874",
-    "name": "localMysql",
-    "connector": "mysql",
-    "user": "root"
-  },
   "localMongoDB": {
     "host": "127.0.0.1",
     "port": 27017,
@@ -30,11 +6,16 @@
     "connector": "mongodb"
   },
   "AWS": {
-    "host": "asuradadb.cf9gvnrq6s3s.us-west-2.rds.amazonaws.com",
+    "host": "asuradb.c8krx0cldsp8.ap-northeast-1.rds.amazonaws.com",
     "port": 3306,
+    "database": "asuradaDataBase",
     "password": "56374874",
     "name": "AWS",
     "connector": "mysql",
     "user": "asurada"
+  },
+  "db": {
+    "name": "db",
+    "connector": "memory"
   }
 }

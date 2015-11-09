@@ -1,0 +1,36 @@
+{
+  "name": "MPRODUCT",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "ID": {
+      "type": "number",
+      "id": true,
+      "required": true,
+      "index": true
+    },
+    "NAME": {
+      "type": "string"
+    },
+    "DETAIL": {
+      "type": "string"
+    },
+    "REGDT_DATE": {
+      "type": "date"
+    },
+    "UPDATE_DATE": {
+      "type": "date"
+    },
+    "IS_DELETE": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

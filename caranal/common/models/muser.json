@@ -1,5 +1,5 @@
 {
-  "name": "MProduct",
+  "name": "MUSER",
   "base": "PersistedModel",
   "strict": false,
   "idInjection": false,
@@ -7,41 +7,42 @@
     "validateUpsert": true
   },
   "properties": {
-    "NAME": {
+    "USER_NAME": {
       "type": "string"
     },
-    "DETAIL": {
+    "ADDRESS": {
       "type": "string"
     },
-    "REGDT": {
+    "BIRTHDAY": {
       "type": "date"
     },
-    "UPDT": {
+    "SEX": {
+      "type": "number"
+    },
+    "PHONE": {
+      "type": "number"
+    },
+    "LEVEL": {
+      "type": "number"
+    },
+    "REGDT_DATE": {
       "type": "date"
+    },
+    "UPDATE_DATE": {
+      "type": "date"
+    },
+    "IS_DELETE": {
+      "type": "number"
     },
     "ID": {
       "type": "number",
       "id": true,
       "required": true,
       "index": true
-    },
-    "PRICE": {
-      "type": "number"
     }
   },
   "validations": [],
-  "relations": {
-    "ProductUserRelation": {
-      "type": "hasMany",
-      "model": "TProductUser",
-      "foreignKey": ""
-    },
-    "RProductUser": {
-      "type": "hasMany",
-      "model": "MUser",
-      "foreignKey": ""
-    }
-  },
+  "relations": {},
   "acls": [],
-  "methods": {}
+  "methods": []
 }

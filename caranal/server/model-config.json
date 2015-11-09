@@ -13,11 +13,8 @@
       "./mixins"
     ]
   },
-  "User": {
-    "dataSource": "db"
-  },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "AWS",
     "public": false
   },
   "ACL": {
@@ -25,39 +22,21 @@
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "AWS",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "AWS",
     "public": false
   },
-  "yw_user": {
-    "dataSource": "mysqlDs",
+  "MUSER": {
+    "dataSource": "AWS",
     "public": true,
     "$promise": {},
     "$resolved": true
   },
-  "MUser": {
-    "dataSource": "localMysql",
-    "public": true,
-    "$promise": {},
-    "$resolved": true
-  },
-  "MProduct": {
-    "dataSource": "db",
-    "public": true,
-    "$promise": {},
-    "$resolved": true
-  },
-  "TProductUser": {
-    "dataSource": "db",
-    "public": true,
-    "$promise": {},
-    "$resolved": true
-  },
-  "MImages": {
-    "dataSource": "localMysql",
+  "MPRODUCT": {
+    "dataSource": "AWS",
     "public": true
   }
 }
