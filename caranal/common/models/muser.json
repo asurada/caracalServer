@@ -1,5 +1,6 @@
 {
   "name": "MUSER",
+  "plural": "MUSER",
   "base": "PersistedModel",
   "strict": false,
   "idInjection": false,
@@ -44,5 +45,5 @@
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": []
+  "methods": {}
 }

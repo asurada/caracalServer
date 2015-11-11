@@ -1,7 +1,5 @@
 module.exports = function(Muser) {
-
 	Muser.createUser = function(id,user_name,address,birthday,sex,phone,level,cb) {
-		
 		Muser.create({ID:id, 
 					  USER_NAME:user_name, 
 					  ADDRESS:address,
@@ -14,7 +12,6 @@ module.exports = function(Muser) {
 					  IS_DELETE:'0'},cb);
 	};
 	
-
 	Muser.remoteMethod (
         'createUser',
         {

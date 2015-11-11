@@ -1,0 +1,45 @@
+{
+  "name": "MIMAGES",
+  "plural": "MIMAGES",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "IMAGE_ID": {
+      "type": "number",
+      "id": true,
+      "required": true,
+      "index": true
+    },
+    "IMAGE_TYPE": {
+      "type": "string"
+    },
+    "IMAGE": {
+      "type": "string"
+    },
+    "IMAGE_SIZE": {
+      "type": "number"
+    },
+    "IMAGE_CTGY": {
+      "type": "string"
+    },
+    "IMAGE_NAME": {
+      "type": "string"
+    },
+    "IMAGE_IS_DELETE": {
+      "type": "number"
+    },
+    "IMAGE_REGDT_DATE": {
+      "type": "date"
+    },
+    "IMAGE_UPDATE_DATE": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

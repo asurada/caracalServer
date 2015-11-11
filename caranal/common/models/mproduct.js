@@ -1,15 +1,13 @@
-module.exports = function(Mproduct) {
-	Mproduct.createProduct =  function(id,product_name,detail,cb) 
-		Mproduct.create({ID:id, 
-					  NAME:product_name, 
-					  DETAIL:detail,
-					  UPDATE_DATE:Date.now(),
-					  REGDT_DATE:Date.now(),
-					  IS_DELETE:'0'},cb);
+module.exports = function(MProduct) {
+	MProduct.createProduct =  function(id,product_name,detail,cb){
+		MProduct.create({ID:id, 
+					  	NAME:product_name, 
+					  	DETAIL:detail,
+					  	UPDATE_DATE:Date.now(),
+					  	REGDT_DATE:Date.now(),
+					  	IS_DELETE:'0'},cb);
 	};
-	
-
-	Mproduct.remoteMethod (
+	MProduct.remoteMethod (
         'createProduct',
         {
           http: {path: '/createProduct', verb: 'post'},

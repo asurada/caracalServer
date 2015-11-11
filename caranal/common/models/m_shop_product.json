@@ -1,0 +1,20 @@
+{
+  "name": "M_SHOP_PRODUCT",
+  "plural": "M_SHOP_PRODUCT",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "products": {
+      "type": [
+        "string"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

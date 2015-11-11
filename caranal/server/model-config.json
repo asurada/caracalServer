@@ -37,6 +37,28 @@
   },
   "MPRODUCT": {
     "dataSource": "AWS",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "MIMAGES": {
+    "dataSource": "AWS",
+    "public": true
+  },
+  "MSHOP": {
+    "dataSource": "AWS",
+    "public": true
+  },
+  "TReview": {
+    "dataSource": "AWS",
+    "public": true
+  },
+  "M_PRODUCT_USER": {
+    "dataSource": "AWS",
+    "public": true
+  },
+  "M_SHOP_PRODUCT": {
+    "dataSource": "AWS",
     "public": true
   }
 }

@@ -1,0 +1,14 @@
+{
+  "name": "M_PRODUCT_USER",
+  "plural": "M_PRODUCT_USER",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
