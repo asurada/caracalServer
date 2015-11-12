@@ -1,25 +1,19 @@
-module.exports = function(MProductUser) {
-	MImages.createUserProduct =  function(id,image_type,image,image_size,image_ctgy,image_name,cb){
-		MImages.create({IMAGE_ID:id, 
-					  	IMAGE_TYPE:image_type, 
-					  	IMAGE:image,
-					  	IMAGE_SIZE:image_size,
-					  	IMAGE_CTGY:image_ctgy,
-					  	IMAGE_NAME:image_name,
-					    IMAGE_REGDT_DATE:Date.now(),
-					    IMAGE_UPDATE_DATE:Date.now(),
-					    IMAGE_IS_DELETE:'0'},cb);
+module.exports = function(MProductUser){
+	MProductUser.createProductUser =  function(id,product_name,detail,cb){
+		MProductUser.create({ID:id, 
+					  	NAME:product_name, 
+					  	DETAIL:detail,
+					  	UPDATE_DATE:Date.now(),
+					  	REGDT_DATE:Date.now(),
+					  	IS_DELETE:'0'},cb);
 	};
-	MImages.remoteMethod (
-        'createUserProduct',
+	MProductUser.remoteMethod (
+        'createProductUser',
         {
-          http: {path: '/createUserProduct', verb: 'post'},
+          http: {path: '/createProductUser', verb: 'post'},
           accepts: [{arg: 'id', type: 'number', http: { source: 'query' } },
-          			{arg: 'image_type', type: 'string', http: { source: 'query'}},
-          			{arg: 'image', type: 'string', http: { source: 'query' } },
-          			{arg: 'image_size', type: 'string', http: { source: 'query' } },
-          			{arg: 'image_ctgy', type: 'string', http: { source: 'query' } },
-          			{arg: 'image_name', type: 'string', http: { source: 'query' } }],
+          			{arg: 'product_name', type: 'string', http: { source: 'query' } },
+          			{arg: 'detail', type: 'string', http: { source: 'query' }}],
           returns: {arg: 'answer', type: 'string'}
         }
     );

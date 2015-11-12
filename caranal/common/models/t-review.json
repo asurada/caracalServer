@@ -6,7 +6,32 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "REVIEW_ID": {
+      "type": "number",
+      "id": true,
+      "required": true,
+      "index": true
+    },
+    "PRODUCT_ID": {
+      "type": "number"
+    },
+    "USER_ID": {
+      "type": "number"
+    },
+    "REVIEW": {
+      "type": "string"
+    },
+    "REGDT_DATE": {
+      "type": "date"
+    },
+    "UPDATE_DATE": {
+      "type": "date"
+    },
+    "IS_DELETE": {
+      "type": "number"
+    }
+  },
   "validations": [],
   "relations": {},
   "acls": [],

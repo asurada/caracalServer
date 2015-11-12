@@ -1,6 +1,5 @@
 {
-  "name": "MSHOP",
-  "plural": "MSHOP",
+  "name": "TBill",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -9,11 +8,21 @@
   "properties": {
     "ID": {
       "type": "number",
-      "id": true,
-      "required": true,
-      "index": true
+      "required": true
     },
-    "SHOP_NAME": {
+    "PRODUCT_ID": {
+      "type": "number",
+      "required": true
+    },
+    "USER_ID": {
+      "type": "number",
+      "required": true
+    },
+    "NUM": {
+      "type": "number",
+      "required": true
+    },
+    "DETAIL": {
       "type": "string"
     },
     "REGDT_DATE": {
@@ -21,9 +30,6 @@
     },
     "UPDATE_DATE": {
       "type": "date"
-    },
-    "IS_DELETE": {
-      "type": "number"
     }
   },
   "validations": [],

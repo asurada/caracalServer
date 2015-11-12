@@ -50,7 +50,7 @@
     "public": true
   },
   "TReview": {
-    "dataSource": "AWS",
+    "dataSource": "localMongoDB",
     "public": true
   },
   "M_PRODUCT_USER": {
@@ -59,6 +59,10 @@
   },
   "M_SHOP_PRODUCT": {
     "dataSource": "AWS",
+    "public": true
+  },
+  "TBill": {
+    "dataSource": "localMongoDB",
     "public": true
   }
 }
