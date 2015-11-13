@@ -64,5 +64,9 @@
   "TBill": {
     "dataSource": "localMongoDB",
     "public": true
+  },
+  "TChat": {
+    "dataSource": "localMongoDB",
+    "public": true
   }
 }

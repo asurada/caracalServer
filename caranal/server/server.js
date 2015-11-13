@@ -1,7 +1,8 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
-
+var message = require('../common/logic/messageLogic');
 var app = module.exports = loopback();
+
 
 app.start = function() {
   // start the web server
@@ -16,12 +17,31 @@ app.start = function() {
   });
 };
 
+
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
 boot(app, __dirname, function(err) {
   if (err) throw err;
-
   // start the server if `$ node server.js`
   if (require.main === module)
-    app.start();
+  //  app.start();
+    console.log('socket start');
+    app.io = require('socket.io')(app.start());
+    app.io.on('connection', function(socket){
+    console.log('a user connected');
+    socket.on('chat message', function(msg){
+      console.log('message: ' + msg);
+      message(app,msg);
+      app.io.emit('chat message', msg);
+    });
+    socket.on('disconnect', function(){
+      console.log('user disconnected');
+    });
+  });
 });
+
+
+function createMessage(app,msg) { 
+    var chat = app.models.TChat;
+    chat.upsert({message: msg});
+}
