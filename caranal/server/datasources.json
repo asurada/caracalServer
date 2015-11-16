@@ -7,13 +7,13 @@
     "connector": "mongodb"
   },
   "AWS": {
-    "host": "asuradb.c8krx0cldsp8.ap-northeast-1.rds.amazonaws.com",
+    "host": "127.0.0.1",
     "port": 3306,
     "database": "asuradaDataBase",
     "password": "56374874",
     "name": "AWS",
     "connector": "mysql",
-    "user": "asurada"
+    "user": "root"
   },
   "db": {
     "name": "db",

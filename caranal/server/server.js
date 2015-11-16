@@ -31,17 +31,14 @@ boot(app, __dirname, function(err) {
     console.log('a user connected');
     socket.on('chat message', function(msg){
       console.log('message: ' + msg);
+      var currentdate = new Date();
       message(app,msg);
-      app.io.emit('chat message', msg);
+      app.io.emit('chat message', '【'+currentdate+'】:'+msg);
     });
     socket.on('disconnect', function(){
       console.log('user disconnected');
     });
+    app.io.sockets.emit('chat message', "接続完了");
   });
 });
 
-
-function createMessage(app,msg) { 
-    var chat = app.models.TChat;
-    chat.upsert({message: msg});
-}
