@@ -29,16 +29,16 @@ boot(app, __dirname, function(err) {
     app.io = require('socket.io')(app.start());
     app.io.on('connection', function(socket){
     console.log('a user connected');
-    socket.on('chat message', function(msg){
+    socket.on('chat', function(msg){
       console.log('message: ' + msg);
       var currentdate = new Date();
       message(app,msg);
-      app.io.emit('chat message', '【'+currentdate+'】:'+msg);
+      app.io.emit('chat', '【'+currentdate+'】:'+msg);
     });
     socket.on('disconnect', function(){
       console.log('user disconnected');
     });
-    app.io.sockets.emit('chat message', "接続完了");
+    app.io.sockets.emit('chat', "接続完了");
   });
 });
 
