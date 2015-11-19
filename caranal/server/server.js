@@ -33,8 +33,18 @@ boot(app, __dirname, function(err) {
       console.log('message: ' + msg);
       var currentdate = new Date();
       message(app,msg);
-      app.io.emit('chat', '【'+currentdate+'】:'+msg);
+      //app.io.emit('chat', '【'+currentdate+'】:'+msg);
+      app.io.emit('chat', msg);
     });
+
+    socket.on('JSON', function(msg){
+      console.log('JSON:' + msg);
+      var currentdate = new Date();
+      message(app,msg);
+      //app.io.emit('chat', '【'+currentdate+'】:'+msg);
+      app.io.emit('JSON', msg);
+    });
+
     socket.on('disconnect', function(){
       console.log('user disconnected');
     });
