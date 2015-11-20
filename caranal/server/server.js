@@ -38,9 +38,9 @@ boot(app, __dirname, function(err) {
     });
 
     socket.on('JSON', function(msg){
-      console.log('JSON:' + msg);
+      console.log('JSON:' + msg.value);
       var currentdate = new Date();
-      message(app,msg);
+      message(app,msg.value);
       //app.io.emit('chat', '【'+currentdate+'】:'+msg);
       app.io.emit('JSON', msg);
     });
