@@ -38,11 +38,48 @@ boot(app, __dirname, function(err) {
     });
 
     socket.on('JSON', function(msg){
-      console.log('JSON:' + msg.value);
+      console.log('JSON:' + msg);
+      var method;
+      var params;
+      var x;
+      var y;
+      var r;
+      JSON.parse(msg, function(k, v) {
+        if (k === "method") {
+            console.log(v);
+            method = v ; 
+            return;
+        }
+        if(k === "params"){
+            params = v;
+            return;
+        } 
+        if(k === "x"){
+            x = v;
+            return;
+        } 
+        if(k === "y"){
+            y = v;
+            return;
+        } 
+        if(k === "r"){
+            r = v;
+            return;
+        } 
+        return '';              
+      });
+
+
       var currentdate = new Date();
-      message(app,msg.value);
+     // message(app,msg.value);
+      var myObject = {
+         jsonrpc : 2.0,
+         method : method,
+         params : [ {x:x} , {y:y} , {r:r}]
+      }
+
       //app.io.emit('chat', '【'+currentdate+'】:'+msg);
-      app.io.emit('JSON', msg);
+      app.io.emit('JSON', myObject);
     });
 
     socket.on('disconnect', function(){
