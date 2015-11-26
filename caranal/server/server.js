@@ -75,7 +75,7 @@ boot(app, __dirname, function(err) {
       var myObject = {
          jsonrpc : 2.0,
          method : method,
-         params : [ {x:x} , {y:y} , {r:r}]
+         params : [{x:x,y:y,r:r}]
       }
 
       //app.io.emit('chat', '【'+currentdate+'】:'+msg);
