@@ -44,7 +44,7 @@ boot(app, __dirname, function(err) {
 
 
       var ready = 0;
-      app.io.on('state', function(msg){
+      socket.on('state', function(msg){
          console.log("preready");
          if(msg === "ready"){
             ready++;
