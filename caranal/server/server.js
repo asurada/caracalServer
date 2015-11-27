@@ -27,46 +27,72 @@ boot(app, __dirname, function(err) {
   //  app.start();
     console.log('socket start');
     app.io = require('socket.io')(app.start());
-    app.io.on('connection', function(socket){
-    console.log('a user connected');
-    socket.on('chat', function(msg){
-      console.log('message: ' + msg);
-      var currentdate = new Date();
-      message(app,msg);
-      //app.io.emit('chat', '【'+currentdate+'】:'+msg);
-      app.io.emit('chat', msg);
-    });
 
-    socket.on('JSON', function(msg){
-      console.log('JSON:' + msg);
-      var method;
-      var params;
-      var x;
-      var y;
-      var r;
-      JSON.parse(msg, function(k, v) {
-        if (k === "method") {
-            console.log(v);
-            method = v ; 
-            return;
+
+
+
+    app.io.on('connection', function(socket){
+
+      console.log('a user connected');
+      socket.on('chat', function(msg){
+        console.log('message: ' + msg);
+        var currentdate = new Date();
+        message(app,msg);
+        //app.io.emit('chat', '【'+currentdate+'】:'+msg);
+        app.io.emit('chat', msg);
+      });
+
+
+      var ready = 0;
+      app.io.on('state', function(msg){
+         console.log("preready");
+         if(msg === "ready"){
+            ready++;
+            console.log("ready");
+            if(ready == 2){
+               console.log("go");
+               var myObject = {
+                 jsonrpc : 2.0,
+                 method : "start",
+                 params : ""
+               }
+               app.io.emit('state', myObject); 
+            }
         }
-        if(k === "params"){
-            params = v;
-            return;
-        } 
-        if(k === "x"){
-            x = v;
-            return;
-        } 
-        if(k === "y"){
-            y = v;
-            return;
-        } 
-        if(k === "r"){
-            r = v;
-            return;
-        } 
-        return '';              
+      });
+
+
+     
+      socket.on('JSON', function(msg){
+        console.log('JSON:' + msg);
+        var method;
+        var params;
+        var x;
+        var y;
+        var r;
+        JSON.parse(msg, function(k, v) {
+          if (k === "method") {
+              console.log(v);
+              method = v ; 
+              return;
+          }
+          if(k === "params"){
+              params = v;
+             return;
+          } 
+          if(k === "x"){
+             x = v;
+             return;
+         } 
+         if(k === "y"){
+              y = v;
+              return;
+          } 
+          if(k === "r"){
+              r = v;
+              return;
+           } 
+          return '';              
       });
 
 
