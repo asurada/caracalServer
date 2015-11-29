@@ -46,7 +46,8 @@ boot(app, __dirname, function(err) {
       var ready = 0;
       socket.on('state', function(msg){
          console.log("preready");
-         if(msg === "ready"){
+          JSON.parse(msg, function(k, v) {
+          if (k === "method" && v ==="ready") {
             ready++;
             console.log("ready");
             if(ready == 2){
@@ -58,8 +59,13 @@ boot(app, __dirname, function(err) {
                }
                app.io.emit('state', myObject); 
             }
-        }
+          } 
+          return '';              
       });
+      
+      });
+
+         
 
 
      
