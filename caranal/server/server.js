@@ -3,6 +3,11 @@ var boot = require('loopback-boot');
 var message = require('../common/logic/messageLogic');
 var app = module.exports = loopback();
 
+exports.req_ip = function(req) {
+        return ( req.headers["X-Forwarded-For"]
+                                        || req.headers["x-forwarded-for"]
+                                        || req.client.remoteAddress );
+}
 
 app.start = function() {
   // start the web server
@@ -28,18 +33,24 @@ boot(app, __dirname, function(err) {
     console.log('socket start');
     app.io = require('socket.io')(app.start());
 
-
-
-
+    //var connectionPool = new Array();
+    var clients = {};
+    var socketId;
     app.io.on('connection', function(socket){
+       
+       socketId = socket.id;
+       var clientIp = socket.request.connection.remoteAddress;
+       console.log('【connected】:new conenction added '+clientIp + ' socketId '+ socketId);
+       clients[socketId] = socket;
+       clients[socketId].emit('chat', 'for your eyes only');
 
-      console.log('a user connected');
-      socket.on('chat', function(msg){
-        console.log('message: ' + msg);
-        var currentdate = new Date();
-        message(app,msg);
-        //app.io.emit('chat', '【'+currentdate+'】:'+msg);
-        app.io.emit('chat', msg);
+
+       socket.on('chat', function(msg){
+          console.log('message: ' + msg);
+          var currentdate = new Date();
+          message(app,msg);
+          //app.io.emit('chat', '【'+currentdate+'】:'+msg);
+          //app.io.emit('chat', msg);
       });
 
 
@@ -65,9 +76,7 @@ boot(app, __dirname, function(err) {
       
       });
 
-         
-
-
+        
      
       socket.on('JSON', function(msg){
         console.log('JSON:' + msg);
@@ -117,7 +126,9 @@ boot(app, __dirname, function(err) {
     socket.on('disconnect', function(){
       console.log('user disconnected');
     });
+
     app.io.sockets.emit('chat', "接続完了");
+
   });
 });
 
