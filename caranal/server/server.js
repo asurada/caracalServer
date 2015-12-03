@@ -34,15 +34,23 @@ boot(app, __dirname, function(err) {
     app.io = require('socket.io')(app.start());
 
     //var connectionPool = new Array();
-    var clients = {};
+    var clients =  new Array();
     var socketId;
     app.io.on('connection', function(socket){
        
        socketId = socket.id;
        var clientIp = socket.request.connection.remoteAddress;
        console.log('【connected】:new conenction added '+clientIp + ' socketId '+ socketId);
-       clients[socketId] = socket;
-       clients[socketId].emit('chat', 'for your eyes only');
+       clients.push(socket);
+       console.log('clients.length ' + clients.length);
+       for (var i = 0 ; i < clients.length ; i++) {
+         console.log('find ' + clients[i]);
+         if(clients[i] !==  socket)
+         {
+              console.log('send to ' + clients[i]);
+              clients[i].emit('chat', '接続：' + clients[i].request.connection.remoteAddress);
+         }
+       };
 
 
        socket.on('chat', function(msg){
@@ -121,6 +129,16 @@ boot(app, __dirname, function(err) {
 
       //app.io.emit('chat', '【'+currentdate+'】:'+msg);
       app.io.emit('JSON', myObject);
+
+       for (var i = 0 ; i < clients.length ; i++) {
+         console.log('JSON' + clients[i]);
+         if(clients[i] !==  socket)
+         {
+              console.log('JSON ' + JSON.toString(myObject));
+              clients[i].emit('JSON', myObject);
+         }
+       };
+
     });
 
     socket.on('disconnect', function(){
