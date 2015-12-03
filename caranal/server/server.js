@@ -101,13 +101,13 @@ boot(app, __dirname, function(err) {
           }
           if(k === "params"){
               params = v;
-             return;
+              return;
           } 
           if(k === "x"){
-             x = v;
-             return;
-         } 
-         if(k === "y"){
+              x = v;
+              return;
+          } 
+          if(k === "y"){
               y = v;
               return;
           } 
@@ -134,8 +134,8 @@ boot(app, __dirname, function(err) {
          console.log('JSON' + clients[i]);
          if(clients[i] !==  socket)
          {
-              console.log('JSON ' + JSON.toString(myObject));
-              clients[i].emit('JSON', myObject);
+            console.log('JSON ' + JSON.toString(myObject));
+            clients[i].emit('JSON', myObject);
          }
        };
 
