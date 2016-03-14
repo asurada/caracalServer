@@ -66,7 +66,7 @@ boot(app, __dirname, function(err) {
       socket.on('state', function(msg){
          console.log("preready");
           JSON.parse(msg, function(k, v) {
-          if (k === "method" && v ==="ready") {
+          if (k === "method" && v ===　"ready") {
             ready++;
             console.log("ready");
             if(ready == 2){
