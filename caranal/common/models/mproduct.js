@@ -17,4 +17,67 @@ module.exports = function(MProduct) {
           returns: {arg: 'answer', type: 'string'}
         }
     );
+
+
+
+    MProduct.deleteProductById =  function(id,cb){
+		MProduct.destroyById(id,cb);
+	};
+	MProduct.remoteMethod (
+        'deleteProductById',
+        {
+          http: {path: '/deleteProductById', verb: 'post'},
+          accepts: {arg: 'id', type: 'number', http: { source: 'query' }},
+          returns: {arg: 'answer', type: 'string'}
+        }
+    );
+
+
+	//削除
+    MProduct.deleteProductByName =  function(name,cb){
+		MProduct.destroyAll({NAME: name},cb
+		);
+	};
+	MProduct.remoteMethod (
+        'deleteProductByName',
+        {
+          http: {path: '/deleteProductByName', verb: 'post'},
+          accepts: {arg: 'name', type: 'string', http: { source: 'query' }},
+          returns: {arg: 'answer', type: 'string'}
+        }
+    );
+
+
+    //検索		
+    MProduct.findProductByName =  function(name,cb){
+		MProduct.find({where: {name: name}}, 
+			cb
+		);
+	};
+	MProduct.remoteMethod (
+        'findProductByName',
+        {
+          http: {path: '/findProductByName', verb: 'post'},
+          accepts: {arg: 'name', type: 'string', http: { source: 'query' }},
+          returns: {arg: 'answer', type: 'string'}
+        }
+    );
+
+
+
+    MProduct.updateProductNameById =  function(id,name,cb){
+		MProduct.updateAll({ID: id},{NAME:name}, 
+			cb
+		);
+	};
+	MProduct.remoteMethod (
+        'updateProductNameById',
+        {
+          http: {path: '/updateProductNameById', verb: 'post'},
+          accepts: [{arg: 'id', type: 'number', http: { source: 'query' }},
+          			{arg: 'name', type: 'string', http: { source: 'query' }}],
+          returns: {arg: 'answer', type: 'string'}
+        }
+    );
+
 };

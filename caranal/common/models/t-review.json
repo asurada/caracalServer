@@ -16,7 +16,7 @@
     "PRODUCT_ID": {
       "type": "number"
     },
-    "USER_ID": {
+    "IS_DELETE": {
       "type": "number"
     },
     "REVIEW": {
@@ -28,7 +28,7 @@
     "UPDATE_DATE": {
       "type": "date"
     },
-    "IS_DELETE": {
+    "USER_ID": {
       "type": "number"
     }
   },

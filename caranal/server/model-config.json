@@ -36,7 +36,7 @@
     "$resolved": true
   },
   "MPRODUCT": {
-    "dataSource": "AWS",
+    "dataSource": "mysqlSocket",
     "public": true,
     "$promise": {},
     "$resolved": true
@@ -51,7 +51,9 @@
   },
   "TReview": {
     "dataSource": "localMongoDB",
-    "public": true
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   },
   "M_PRODUCT_USER": {
     "dataSource": "AWS",

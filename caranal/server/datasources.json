@@ -3,8 +3,10 @@
     "host": "127.0.0.1",
     "port": 27017,
     "database": "asuradaDataBase",
+    "password": "",
     "name": "localMongoDB",
-    "connector": "mongodb"
+    "connector": "mongodb",
+    "user": ""
   },
   "AWS": {
     "host": "127.0.0.1",
@@ -18,5 +20,14 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "mysqlSocket": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "database": "SHOP",
+    "password": "56374874",
+    "name": "mysqlSocket",
+    "connector": "mysql",
+    "user": "root"
   }
 }
